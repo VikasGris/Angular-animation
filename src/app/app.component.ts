@@ -99,34 +99,40 @@ import {
         })
       ),
       transition('void => *', [
-        animate(1000, keyframes([
-          style({
-            opacity: 0,
-            transform: 'translateX(-100px)',
-            offset:0
-          }),
-          style({
-            transform:'translateX(-50px)',
-            opacity:0.5,
-            offset:0.3
-          }),
-          style({
-            transform:'translateX(-20px)',
-            opacity:1,
-            offset:0.8
-          }),
-          style({
-            transform:'translateX(0px)',
-            opacity:1,
-            offset:1
-          }),
-        ]))
+        animate(
+          1000,
+          keyframes([
+            style({
+              opacity: 0,
+              transform: 'translateX(-100px)',
+              offset: 0
+            }),
+            style({
+              transform: 'translateX(-50px)',
+              opacity: 0.5,
+              offset: 0.3
+            }),
+            style({
+              transform: 'translateX(-20px)',
+              opacity: 1,
+              offset: 0.8
+            }),
+            style({
+              transform: 'translateX(0px)',
+              opacity: 1,
+              offset: 1
+            })
+          ])
+        )
       ]),
       transition('* => void', [
-        animate(300 , style({
-          transform:'translateX(100px)',
-          opacity:0
-        })),
+        animate(
+          300,
+          style({
+            transform: 'translateX(100px)',
+            opacity: 0
+          })
+        )
       ])
     ])
   ]
@@ -155,5 +161,13 @@ export class AppComponent {
 
   onShrink() {
     this.wildState = 'shrunken';
+  }
+
+  animationStarted(event) {
+    console.log(event);
+  }
+
+  animationEnded(event) {
+    console.log(event);
   }
 }
